@@ -7,4 +7,4 @@ def test_case1():
 
 # ケース２：異常系
 def test_case2():
-    assert bmi.calc_bmi(0, 65) == -1
+    assert bmi.calc_bmi(0, 65) == 0
