@@ -3,8 +3,6 @@ from selenium import webdriver
 
 class TestGoogle:
 
-    driver = webdriver.Chrome()
-
     def setup_class(cls):
         cls.driver = webdriver.Chrome(
             "./chromedriver")
