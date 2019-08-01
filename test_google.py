@@ -19,5 +19,7 @@ class TestGoogle:
         driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").send_keys("hoge")
         driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input.gNO89b").click()
 
+        driver.save_screenshot("/home/circleci/repo/test-reports/result.png")
+
     def teardown_class(cls):
         cls.driver.quit()
