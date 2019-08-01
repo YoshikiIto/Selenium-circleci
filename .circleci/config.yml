@@ -1,0 +1,6 @@
+jobs:
+    build:
+        steps:
+            - checkout
+            - run: pip install pytest
+            - run: pytest ./test_bmi.py
