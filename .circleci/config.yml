@@ -49,7 +49,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_bmi.py
+            pytest test_google.py
 
       - store_artifacts:
           path: test-reports
