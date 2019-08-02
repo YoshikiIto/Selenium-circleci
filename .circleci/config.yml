@@ -56,3 +56,20 @@ jobs:
       - store_artifacts:
           path: test-reports/
           destination: test-reports
+
+
+workflows:
+  version: 2
+  normal_workflow:
+    jobs:
+      - build
+  schedule_workflow:
+    triggers:
+      - schedule:
+          cron: "1 7 * * *" # UTCで記述。-9
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
