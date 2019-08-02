@@ -35,11 +35,7 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
 
-      - run:
-          name: create artifact folder
-          command: |
-            mkdir ~/repo/test-reports
-            touch ~/repo/test-reports/hoge.txt
+      - run: mkdir test-reports
 
       - save_cache:
           paths:
@@ -58,5 +54,5 @@ jobs:
             pytest test_google.py
 
       - store_artifacts:
-          path: ~/repo/test-reports
+          path: test-reports/
           destination: test-reports
