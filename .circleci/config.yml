@@ -35,6 +35,10 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
 
+      - run:
+          name: create artifact folder
+          comamnd: mkdir test-reports
+
       - save_cache:
           paths:
             - ./venv
@@ -52,5 +56,8 @@ jobs:
             pytest test_google.py
 
       - store_artifacts:
-          path: test-reports
+          path: /test-reports
           destination: test-reports
+
+      - store_test_results:
+          path: /test-results
