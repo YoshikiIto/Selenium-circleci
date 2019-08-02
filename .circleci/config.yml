@@ -28,13 +28,16 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: install chrome
+          command: sudo apt-get install google-chrome-stable
+
+      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-            sudo apt-get install google-chrome-stable
 
       - save_cache:
           paths:
