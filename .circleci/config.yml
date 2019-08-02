@@ -39,6 +39,7 @@ jobs:
           name: create artifact folder
           command: |
             mkdir ~/repo/test-reports
+            touch ~/repo/test-reports/hoge.txt
 
       - save_cache:
           paths:
