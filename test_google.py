@@ -4,6 +4,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class TestGoogle:
 
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+
     def setup_class(cls):
         cls.driver = webdriver.Chrome(ChromeDriverManager().install())
         cls.driver.maximize_window()
@@ -23,6 +25,8 @@ class TestGoogle:
         driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input.gNO89b").click()
 
         driver.save_screenshot("test-reports/result_003.png")
+
+        assert driver.title.count('hoge'), "ページタイトルにhogeが含まれていること"
 
     def teardown_class(cls):
         cls.driver.quit()
