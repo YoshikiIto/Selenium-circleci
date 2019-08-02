@@ -38,7 +38,7 @@ jobs:
       - run:
           name: create artifact folder
           command: |
-            mkdir test-reports
+            mkdir ~/repo/test-reports
 
       - save_cache:
           paths:
