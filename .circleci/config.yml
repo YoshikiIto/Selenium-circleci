@@ -37,7 +37,8 @@ jobs:
 
       - run:
           name: create artifact folder
-          comamnd: mkdir test-reports
+          comamnd: |
+            mkdir test-reports
 
       - save_cache:
           paths:
