@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
 
 class TestGoogle:
 
@@ -19,6 +20,7 @@ class TestGoogle:
         driver.save_screenshot("test-reports/result_001.png")
 
         driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").send_keys("hoge")
+        driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").send_keys(Keys.TAB)
 
         driver.save_screenshot("test-reports/result_002.png")
 
