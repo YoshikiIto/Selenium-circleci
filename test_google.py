@@ -5,8 +5,6 @@ from selenium.webdriver.common.keys import Keys
 
 class TestGoogle:
 
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-
     def setup_class(cls):
         cls.driver = webdriver.Chrome(ChromeDriverManager().install())
         cls.driver.maximize_window()
