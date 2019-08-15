@@ -31,7 +31,8 @@ class TestGoogle:
         driver.save_screenshot("test-reports/result_003.png")
 
         assert driver.title.count('hoge'), "ページタイトルにhogeが含まれていること"
-        # assert driver.title.count('foobar'), "ページタイトルにfoobarが含まれていること"  # わざと失敗させる
+        assert driver.title.count(
+            'foobar'), "ページタイトルにfoobarが含まれていること"  # わざと失敗させる
 
     def teardown_class(cls):
         cls.driver.quit()
