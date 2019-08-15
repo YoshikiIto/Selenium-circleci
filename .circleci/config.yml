@@ -51,12 +51,14 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_google.py
+            pytest test_google.py -v --junit-xml=test-results/results.xml
 
       - store_artifacts:
           path: test-reports/
           destination: test-reports
 
+      - store_test_results:
+          path: test-results
 
 workflows:
   version: 2
