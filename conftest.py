@@ -1,6 +1,5 @@
 from selenium import webdriver
 import pytest
-driver = None
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -11,20 +10,16 @@ def pytest_runtest_makereport(item, call):
     if report.when == 'call' or report.when == "setup":
         xfail = hasattr(report, 'wasxfail')
         if (report.skipped and xfail) or (report.failed and not xfail):
-            file_name = "test-reports/"+report.nodeid.replace("::", "_")+".png"
+            file_name = get_latest_modified_file_path("test-reports/images/")
             _capture_screenshot(file_name)
             if file_name:
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
-                       'onclick="window.open(this.src)" align="right"/></div>' % file_name.replace("test-reports", ".")
+                       'onclick="window.open(this.src)" align="right"/></div>' % file_name
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
 
-def _capture_screenshot(name):
-    driver.get_screenshot_as_file(name)
-
-@pytest.fixture(scope='session', autouse=True)
-def browser():
-    global driver
-    if driver is None:
-        driver = webdriver.Firefox()
-    return driver
+def get_latest_modified_file_path(dirname):
+  target = os.path.join(dirname, '*')
+  files = [(f, os.path.getmtime(f)) for f in glob(target)]
+  latest_modified_file_path = sorted(files, key=lambda files: files[1])[-1]
+  return latest_modified_file_path[0]
