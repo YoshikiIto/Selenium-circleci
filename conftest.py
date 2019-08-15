@@ -26,5 +26,5 @@ def _capture_screenshot(name):
 def browser():
     global driver
     if driver is None:
-        driver = webdriver.Chrome()
+        driver = webdriver.Firefox()
     return driver
