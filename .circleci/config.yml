@@ -51,7 +51,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_google.py -v --junit-xml=test-results/regression/results.xml
+            pytest test_google.py -v --junit-xml=test-results/regression/results.xml --html=test-results/regression/report.html --self-contained-html
 
       - store_artifacts:
           path: test-reports/
