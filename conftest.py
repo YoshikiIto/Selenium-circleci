@@ -11,11 +11,11 @@ def pytest_runtest_makereport(item, call):
     if report.when == 'call' or report.when == "setup":
         xfail = hasattr(report, 'wasxfail')
         if (report.skipped and xfail) or (report.failed and not xfail):
-            file_name = report.nodeid.replace("::", "_")+".png"
+            file_name = "test-reports/"+report.nodeid.replace("::", "_")+".png"
             _capture_screenshot(file_name)
             if file_name:
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
-                       'onclick="window.open(this.src)" align="right"/></div>' % file_name
+                       'onclick="window.open(this.src)" align="right"/></div>' % file_name.replace("test-reports", ".")
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
 
@@ -26,5 +26,5 @@ def _capture_screenshot(name):
 def browser():
     global driver
     if driver is None:
-        driver = webdriver.Firefox()
+        driver = webdriver.Chrome()
     return driver
