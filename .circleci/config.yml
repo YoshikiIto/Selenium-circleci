@@ -36,6 +36,7 @@ jobs:
             pip install -r requirements.txt
 
       - run: mkdir test-reports
+      - run: mkdir test-reports/images
 
       - save_cache:
           paths:
