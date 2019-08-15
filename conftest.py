@@ -1,6 +1,6 @@
 from selenium import webdriver
 import pytest
-import os
+import os, glob
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
