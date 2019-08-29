@@ -61,18 +61,18 @@ jobs:
       - store_test_results:
           path: test-results
 
-workflows:
-  version: 2
-  normal_workflow:
-    jobs:
-      - build
-  schedule_workflow:
-    triggers:
-      - schedule:
-          cron: "1 7 * * *" # UTCで記述。-9
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build
+#workflows:
+#  version: 2
+#  normal_workflow:
+#    jobs:
+#      - build
+#  schedule_workflow:
+#    triggers:
+#      - schedule:
+#          cron: "1 7 * * *" # UTCで記述。-9
+#          filters:
+#            branches:
+#              only:
+#                - master
+#    jobs:
+#      - build
