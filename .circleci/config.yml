@@ -42,7 +42,7 @@ jobs:
 
       - run: mkdir test-reports
       - run: mkdir test-reports/images
-       run: mkdir test-reports/allure-results
+      - run: mkdir test-reports/allure-results
 
       - save_cache:
           paths:
