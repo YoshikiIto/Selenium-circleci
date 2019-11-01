@@ -43,7 +43,7 @@ jobs:
 
       - run: mkdir test-reports
       - run: mkdir test-reports/images
-      - run: mkdir test-reports/allure-results
+      - run: mkdir allure-results
 
       - save_cache:
           paths:
@@ -59,7 +59,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_google.py --alluredir=test-reports/allure-results -v --junit-xml=test-results/regression/results.xml --html=test-reports/report.html --self-contained-html
+            pytest test_google.py --alluredir=allure-results # -v --junit-xml=test-results/regression/results.xml --html=test-reports/report.html --self-contained-html
             allure generate
 
       - store_artifacts:
