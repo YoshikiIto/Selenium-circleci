@@ -59,7 +59,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_google.py -v --junit-xml=test-results/regression/results.xml --html=test-reports/report.html --self-contained-html --alluredir=test-reports/allure-results
+            pytest test_google.py -v --junit-xml=test-results/regression/results.xml --html=test-reports/report.html --self-contained-html
             allure generate
 
       - store_artifacts:
